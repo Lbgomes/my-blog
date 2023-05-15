@@ -15,8 +15,8 @@ const ArticleContent = ({title, date, author, content, imagem}: ArticleProps) =>
             </S.ImageContainer>
             <S.Title>{title}</S.Title>
             <S.DataContainer>
-                <S.Data>{date}{' -  '}</S.Data>
-                <S.Data>{' '}{author}</S.Data>
+             {/* <S.Data>{date}</S.Data> */}
+                    <S.Data>{' '}{author}</S.Data> 
             </S.DataContainer>
             <S.Content dangerouslySetInnerHTML={{ __html: content }} />
         </S.Container>

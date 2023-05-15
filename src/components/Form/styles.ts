@@ -9,13 +9,13 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
+  margin: 50px 0; 
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
   min-width: 300px;
   font-family: "montserrat", sans-serif !important;
-  height: 100vh;
   place-content: center;
   label {
     display: flex;
@@ -55,3 +55,10 @@ export const Form = styled.form`
     }
   }
 `;
+
+
+export const ImageContainer = styled.div`
+width: 100%;
+    height: 250px;
+    position: relative;
+`

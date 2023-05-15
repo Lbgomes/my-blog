@@ -9,7 +9,6 @@ const Article = () => {
   const [articles, setArticles] = useState<any>();
   const Router = useRouter();
   const id = Router.query.article?.toString();
-  console.log(id);
   const fetchArticles = async () => {
     if (id) {
       const articlesData = await getArticle(id);
@@ -18,7 +17,6 @@ const Article = () => {
       }
     }
   };
-  console.log(articles);
   useEffect(() => {
     fetchArticles();
   }, [id]);
