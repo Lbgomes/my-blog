@@ -16,5 +16,9 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'montserrat', sans-serif;
   }
+  body{
+  background-color: #202020;
+
+  }
 `
 export default GlobalStyles

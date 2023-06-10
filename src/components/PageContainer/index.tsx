@@ -5,8 +5,6 @@ type PageContainerProps = {
 };
 export const PageContainer = ({ children }: PageContainerProps) => {
   return (
-    <S.Background>
       <S.Container>{children}</S.Container>
-    </S.Background>
   );
 };

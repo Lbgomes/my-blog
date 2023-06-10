@@ -12,6 +12,7 @@ export const Title = styled.h1`
 export const ImageContainer = styled.div`
     width: 100%;
     height: 150px;
+    margin-bottom: 1.5rem;
 >img {
     position: initial !important;
     height: 100%;

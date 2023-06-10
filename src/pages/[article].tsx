@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Header } from "@/components/Header";
 import { PageContainer } from "@/components/PageContainer";
 import ArticleContent from "@/components/ArticleContent";
-
+import Head from "next/head";
 const Article = () => {
   const [articles, setArticles] = useState<any>();
   const Router = useRouter();
@@ -22,18 +22,23 @@ const Article = () => {
   }, [id]);
 
   return (
-    <PageContainer>
-      <Header />
-      {articles && (
-        <ArticleContent
-          imagem={articles.image}
-          title={articles.title}
-          date={articles.creationDate}
-          author={articles.author}
-          content={articles.content}
-        />
-      )}
-    </PageContainer>
+    <>
+    <Head>
+      <title>{articles.title}</title>
+    </Head>
+      <PageContainer>
+        <Header />
+        {articles && (
+          <ArticleContent
+            imagem={articles.image}
+            title={articles.title}
+            date={articles.creationDate}
+            author={articles.author}
+            content={articles.content}
+          />
+        )}
+      </PageContainer>
+    </>
   );
 };
 

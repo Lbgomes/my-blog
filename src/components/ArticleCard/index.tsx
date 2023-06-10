@@ -2,8 +2,6 @@ import * as S from './styles'
 import Image from 'next/image'
 import { TbEdit, TbTrash } from 'react-icons/tb';
 import { useRouter } from "next/router";
-import Swal from 'sweetalert2';
-import { deleteArticle } from '@/services/articles';
 
 type ArticleCardProps = {
     id: string;
@@ -11,17 +9,18 @@ type ArticleCardProps = {
     subTitle: string;
     image: string;
     isAdmin?: boolean
-    redirectToArticle: () => void | any;
-    redirectToEditArticle?: () => void;
+    article: string;
     removeArticle?: () => void;
 }
-export const ArticleCard = ({ redirectToArticle, removeArticle, redirectToEditArticle, isAdmin = false, title, subTitle, image, }: ArticleCardProps) => {
-
+export const ArticleCard = ({ article, removeArticle, isAdmin = false, title, subTitle, image, }: ArticleCardProps) => {
+   
+  const router = useRouter();
+   
     return (
-        <S.Container onClick={() => !isAdmin && redirectToArticle}>
+        <S.Container onClick={() => router.push(`/${article}`)}>
             {isAdmin && (
                 <S.AdminContainer>
-                    <S.Edit onClick={redirectToEditArticle}><TbEdit size={16} /></S.Edit>
+                    <S.Edit onClick={() => router.push(`/edit-article/${article}`)}><TbEdit size={16} /></S.Edit>
                     <S.Remove onClick={removeArticle}><TbTrash size={16} /></S.Remove>
                 </S.AdminContainer>
             )}

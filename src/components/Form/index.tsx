@@ -25,7 +25,7 @@ const Form = ({}) => {
   const getArticleById = async () => {
     const articlesData = await getArticle(slug);
     if (articlesData) {
-      setArticleSelected(articlesData)
+      setArticleSelected(articlesData);
       setTitle(articlesData.title);
       setAuthor(articlesData.author);
       setContent(articlesData.content);
@@ -44,17 +44,18 @@ const Form = ({}) => {
     if (slug) {
       try {
         const formData = new FormData();
-        console.log(articleSelected?.title !== title && formData.append("title", title))
         articleSelected?.title !== title && formData.append("title", title);
         articleSelected?.author !== author && formData.append("author", author);
-        articleSelected?.content !== content && formData.append("content", content);
-        articleSelected?.subtitle !== subtitle && formData.append("subtitle", subtitle);
+        articleSelected?.content !== content &&
+          formData.append("content", content);
+        articleSelected?.subtitle !== subtitle &&
+          formData.append("subtitle", subtitle);
         file && formData.append("imagem", file as any);
 
         await editArticle(slug, formData);
         alert("Artigo editado com sucesso!");
- 
-      } catch(error) {
+        router.push("/admin");
+      } catch (error) {
         alert("Não foi possível editar o artigo");
       }
     } else {
@@ -118,9 +119,11 @@ const Form = ({}) => {
             onChange={handleFileChange}
             placeholder="Subtítulo"
           />
-          <S.ImageContainer>
-            <Image src={imagePreview} fill alt="Imagem" />
-          </S.ImageContainer>
+          {imagePreview && (
+            <S.ImageContainer>
+              <Image src={imagePreview} fill alt="Imagem" />
+            </S.ImageContainer>
+          )}
         </label>
         <label>
           Subtítulo:
@@ -132,7 +135,7 @@ const Form = ({}) => {
             placeholder="Subtítulo"
           />
         </label>
-        <button type="submit">Criar</button>
+        <button type="submit">{slug ? "Editar" : "Criar"}</button>
       </S.Form>
     </S.Container>
   );
