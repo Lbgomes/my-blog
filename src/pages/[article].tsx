@@ -24,7 +24,7 @@ const Article = () => {
   return (
     <>
     <Head>
-      <title>{articles.title}</title>
+      <title>{articles?.title}</title>
     </Head>
       <PageContainer>
         <Header />

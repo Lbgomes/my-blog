@@ -4,7 +4,6 @@ export const Container = styled.div`
     position: relative;
     width: 100%;
     color: #fff;
-    cursor: pointer;
     @media(min-width: 1150px){
     max-width: 550px;
         

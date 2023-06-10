@@ -17,7 +17,7 @@ export const ArticleCard = ({ article, removeArticle, isAdmin = false, title, su
   const router = useRouter();
    
     return (
-        <S.Container onClick={() => router.push(`/${article}`)}>
+        <S.Container>
             {isAdmin && (
                 <S.AdminContainer>
                     <S.Edit onClick={() => router.push(`/edit-article/${article}`)}><TbEdit size={16} /></S.Edit>
@@ -25,7 +25,7 @@ export const ArticleCard = ({ article, removeArticle, isAdmin = false, title, su
                 </S.AdminContainer>
             )}
             <Image fill alt="image" src={image} />
-            <S.Title>{title}</S.Title>
+            <S.Title onClick={() => router.push(`/${article}`)}>{title}</S.Title>
             <S.SubTitle>{subTitle}</S.SubTitle>
         </S.Container>
     )

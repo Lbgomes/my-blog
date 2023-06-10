@@ -18,16 +18,6 @@ export const ArticlesList = ({ isAdmin }: { isAdmin?: boolean }) => {
     }
   };
 
-  const redirectToArticle = (id: string) => {
-    const route = `/${id}`;
-    router.push(route);
-  };
-
-  const redirectToEditArticle = (id: string) => {
-    const route = `/edit-article/${id}`;
-    router.push(route);
-  };
-
   const removeArticle = (id: string) => {
     Swal.fire({
       title: "Você tem certeza?",
